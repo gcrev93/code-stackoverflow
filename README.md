@@ -1,13 +1,5 @@
 # README
-## This is the README for your extension "GabbyExt" 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+## This is the README for the Visual Studio Code Stack Overflow Search Extension 
+This extension is used to do a Stack Overflow search directly from VS Code.
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-** Enjoy!**
+Once you access the plugin, the search bar will ask for input and then open up Stack Overflow in your default browser with your search results
