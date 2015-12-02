@@ -36,7 +36,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let lineOfSelectionEnd = selection.end.line;
 		let charOfSelectionEnd = selection.end.character;
 		
-		let myLines: Array<string> = [];
+		let output = "";
 		
 		for (var index = lineOfSelectionStart; index <= lineOfSelectionEnd; index++) {
 			let line = textEdtior.document.lineAt(index).text;
@@ -49,14 +49,14 @@ export function activate(context: vscode.ExtensionContext) {
 				line = line.slice(0, charOfSelectionEnd);
 			}
 			
-			myLines.push(line);
+			output += line + "";
 			
 		}
 		
 		
 		//Use the node module "open" to open a web browser
 		
-		open('http://stackoverflow.com/search?q='+myLines);
+		open('http://stackoverflow.com/search?q='+output);
 		
 	});
 
