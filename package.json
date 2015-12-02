@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.searchStack"
+    "onCommand:extension.searchStack",
+    "onCommand:extension.searchSelection"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -19,6 +20,10 @@
       {
         "command": "extension.searchStack",
         "title": "Stack Search"
+      },
+      {
+        "command": "extension.searchSelection",
+        "title": "Selection Stack Search"
       }
     ]
   },

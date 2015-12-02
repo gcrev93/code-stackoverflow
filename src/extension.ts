@@ -8,14 +8,11 @@ var open  = require('open');
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "GabbyExt" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	var disposable = vscode.commands.registerCommand('extension.searchStack', () => {
+	var search = vscode.commands.registerCommand('extension.searchStack', () => {
 		// The code you place here will be executed every time your command is executed
 
 		vscode.window.showInputBox({
@@ -24,6 +21,44 @@ export function activate(context: vscode.ExtensionContext) {
 			open('http://stackoverflow.com/search?q=' + result);
 		});
 	});
+	
+	//use Stack Overflow to search selected text
+	var s_search = vscode.commands.registerTextEditorCommand('extension.searchSelection', (textEdtior: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
+		let selection = {
+			start: textEdtior.selections[0].start, 
+			end: textEdtior.selections[0].end
+		};
+		
+		
+		//Get the whole line of code with the selection
+		let lineOfSelectionStart = selection.start.line;
+		let charOfSelectionStart = selection.start.character;
+		let lineOfSelectionEnd = selection.end.line;
+		let charOfSelectionEnd = selection.end.character;
+		
+		let myLines: Array<string> = [];
+		
+		for (var index = lineOfSelectionStart; index <= lineOfSelectionEnd; index++) {
+			let line = textEdtior.document.lineAt(index).text;
+			
+			if (index === lineOfSelectionStart) {
+				// Trim from the beginning
+				line = line.slice(charOfSelectionStart);
+			} else if (index === lineOfSelectionEnd) {
+				// Trim from the end
+				line = line.slice(0, charOfSelectionEnd);
+			}
+			
+			myLines.push(line);
+			
+		}
+		
+		
+		//Use the node module "open" to open a web browser
+		
+		open('http://stackoverflow.com/search?q='+myLines);
+		
+	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(search);
 }
