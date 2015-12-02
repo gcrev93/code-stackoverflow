@@ -1,9 +1,9 @@
 {
-  "name": "GabbyExt",
-  "displayName": "GabbysExt",
-  "description": "Ext made by Gabby",
+  "name": "StackSearchExt",
+  "displayName": "Stack Overflow Search",
+  "description": "Extension made to do a stack overflow search straight from VSCode",
   "version": "0.0.1",
-  "publisher": "GabrielleCrevecoeur",
+  "publisher": "gcrev93",
   "engines": {
     "vscode": "^0.10.1"
   },
