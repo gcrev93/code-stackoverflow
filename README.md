@@ -7,3 +7,7 @@ Two commands available:
 
 1. Stack Search: With this command you will be able to search anything you want from the VS code input bar
 2. Selection Stack Search: With this command you will automatically open a search for selected text in your document
+
+Testing for project
+
+[![Build Status](https://travis-ci.org/gcrev93/code-stackoverflow.svg?branch=master)](https://travis-ci.org/gcrev93/code-stackoverflow)

@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as selection from './selection';
 
 var open  = require('open');
 
@@ -24,40 +25,14 @@ export function activate(context: vscode.ExtensionContext) {
 	
 	//use Stack Overflow to search selected text
 	var s_search = vscode.commands.registerTextEditorCommand('extension.searchSelection', (textEdtior: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
-		let selection = {
+		let thisSelection = {
 			start: textEdtior.selections[0].start, 
 			end: textEdtior.selections[0].end
 		};
 		
-		
-		//Get the whole line of code with the selection
-		let lineOfSelectionStart = selection.start.line;
-		let charOfSelectionStart = selection.start.character;
-		let lineOfSelectionEnd = selection.end.line;
-		let charOfSelectionEnd = selection.end.character;
-		
-		let output = "";
-		
-		for (var index = lineOfSelectionStart; index <= lineOfSelectionEnd; index++) {
-			let line = textEdtior.document.lineAt(index).text;
-			
-			if (index === lineOfSelectionStart) {
-				// Trim from the beginning
-				line = line.slice(charOfSelectionStart);
-			} else if (index === lineOfSelectionEnd) {
-				// Trim from the end
-				line = line.slice(0, charOfSelectionEnd);
-			}
-			
-			output += line + "";
-			
-		}
-		
-		
 		//Use the node module "open" to open a web browser
-		
+		let output = selection.getStringFromSelection(thisSelection, textEdtior.document);
 		open('http://stackoverflow.com/search?q='+output);
-		
 	});
 
 	context.subscriptions.push(search);
