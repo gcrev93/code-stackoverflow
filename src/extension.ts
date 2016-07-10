@@ -19,7 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInputBox({
 			prompt: 'What do you want to search for?'
 		}).then((result) => {
-			open('http://stackoverflow.com/search?q=' + result);
+			if(result){
+				open('http://stackoverflow.com/search?q=' + result);
+			}
 		});
 	});
 	
@@ -32,7 +34,9 @@ export function activate(context: vscode.ExtensionContext) {
 		
 		//Use the node module "open" to open a web browser
 		let output = selection.getStringFromSelection(thisSelection, textEdtior.document);
-		open('http://stackoverflow.com/search?q='+output);
+		if(output && output.trim.length > 0){
+			open('http://stackoverflow.com/search?q='+output);
+		}
 	});
 
 	context.subscriptions.push(search);
