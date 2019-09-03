@@ -11,10 +11,11 @@ import * as assert from 'assert';
 import * as selection from '../src/selection';
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", () => {
+describe("Extension Tests", () => {
 
 	// Defines a Mocha unit test
 	test("Selection gets text from a selection", () => {
+		// Example"
 		// Sele
 		// ction 1
 		var documentMock = {
