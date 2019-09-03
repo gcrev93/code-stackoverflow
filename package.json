@@ -31,7 +31,7 @@
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -p ./",
     "pretest": "tsc",
-    "test": "mocha --ui tdd ./out/test/extension.test.js"
+    "test": "jest"
   },
   "devDependencies": {
     "typescript": "^3.5.3",
