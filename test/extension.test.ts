@@ -3,9 +3,6 @@
 // Please refer to their documentation on https://mochajs.org/ for help.
 //
 
-// The module 'assert' provides assertion methods from node
-import * as assert from 'assert';
-
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 import * as selection from '../src/selection';
@@ -18,7 +15,7 @@ describe("Extension Tests", () => {
 		// Example"
 		// Sele
 		// ction 1
-		var documentMock = {
+		let documentMock = {
 			lineAt: function (line: number) {
 				if (line === 0) {
 					return {
@@ -32,7 +29,7 @@ describe("Extension Tests", () => {
 			}
 		}
 		
-		var thisSelection = {
+		const thisSelection = {
 			start: {
 				line: 0,
 				character: 0
@@ -43,7 +40,6 @@ describe("Extension Tests", () => {
 			}};
 		
 		let myString = selection.getStringFromSelection(thisSelection, documentMock);
-		
-		assert.equal(myString.toString(), "Sele ction ");
+		expect(myString.toString()).toEqual("Sele ction ")
 	});
 });
