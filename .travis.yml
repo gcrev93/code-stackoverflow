@@ -1,9 +1,9 @@
 language: node_js
 
 node_js:
-  - 4.0
+  - lts/*
 
 install:
-  - "npm install -g typescript"
-  - "npm install -g mocha"
-  - "npm install"
+  - "npm i -g typescript"
+  - "npm i -g jest"
+  - "npm i"
