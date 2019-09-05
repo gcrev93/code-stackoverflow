@@ -11,3 +11,5 @@ Two commands available:
 Testing for project
 
 [![Build Status](https://travis-ci.org/gcrev93/code-stackoverflow.svg?branch=master)](https://travis-ci.org/gcrev93/code-stackoverflow)
+
+Coming soon: StackOverflow Search within VS Code Browser!
