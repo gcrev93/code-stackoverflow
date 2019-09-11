@@ -38,7 +38,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "typescript": "^3.5.3",
+    "typescript": "^3.6.0",
     "vscode": "^1.1.36"
   },
   "dependencies": {
